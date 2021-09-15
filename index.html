@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/transitions.css" />
+    <title>Cofre</title>
+    <script src="js/transition.js"></script>
+    <script src="https://kit.fontawesome.com/2985d3b77d.js" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+  
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+    
+
+</head>
+<body>
+    <div class="transition transition-1 is-active"></div>
+
+    <div class="wrapper">
+        <div class="wrapper_inner">
+            <div class="vertical_wrap">
+                <div class="backdrop"></div>
+
+                <div class="vertical_bar">
+
+                    <div class="profile_info">
+                        <div class="img_holder">
+                            <img src="img/imgperfil.jpg" alt="img_perfil">
+                        </div>
+                        <p id="nameUser" class="title"></p>
+                        <p id="emailUser" class="sub_title"></p>
+                    </div>
+
+                    <ul class="menu">
+                        <li><a href="#" class="active">
+                            <span class="icon">
+                                <i class="fas fa-utensils"></i>
+                            </span>
+                            <span class="text">Home</span>
+                        </a></li>
+                        <li><a href="my_recipes.html" >
+                            <span class="icon">
+                                <i class="fas fa-book-open"></i>
+                            </span>
+                            <span class="text">Minhas Receitas</span>
+                        </a></li>
+                        <li><a href="saves_recipes.html" >
+                            <span class="icon">
+                                <i class="fas fa-book"></i>
+                            </span>
+                            <span class="text">Receitas Salvas</span>
+                        </a></li>
+                    </ul>
+                    <div class="btn">
+                        <button id="btnSair" onclick="sair()">Sair</button>
+                    </div>
+
+                </div>
+
+                
+            </div>
+            <div class="main_container">
+                <div class="top_bar">
+                    <div class="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="logo">
+                        Compartilhe <span>Receitas</span>
+                    </div>
+                </div>
+                <div class="content">
+
+                    <div class="item">
+                        
+                        <div class="item-img">
+                            <img src="img/lasanha.jpg">
+                        </div>
+                        <div class="item-title">
+                            <h3>Lasanha</h3>
+                        </div>
+                                    <hr>
+                        <div class="item-ingredientes">
+                            <h4>Ingredientes</h4>
+                            <p>500 g de massa de lasanha,
+                                500 g de carne moída,
+                                2 caixas de creme de leite,
+                                3 colheres de manteiga,
+                                3 colheres de farinha de trigo,
+                                500 g de presunto,
+                                500 g de mussarela,
+                                sal a gosto,
+                                2 copos de leite,
+                                1 cebola ralada,
+                                3 colheres de óleo,
+                                1 caixa de molho de tomate,
+                                3 dentes de alho amassados,
+                                1 pacote de queijo ralado.
+                            </p>
+                        </div>
+                                    <hr>
+                        <div class="item-preparo">
+                            <h4>Modo de preparo</h4>
+                            <p>Cozinhe a massa segundo as orientações do fabricante, despeje em um refratário com água gelada para não grudar e reserve.
+
+                                Molho à bolonhesa
+                                
+                                Refogue o alho, a cebola, a carne moída, o molho de tomate, deixe cozinhar por 3 minutos e reserve.
+                                
+                                Molho branco
+                                
+                                Derreta a margarina, coloque as 3 colheres de farinha de trigo e mexa.
+                                
+                                Despeje o leite aos poucos e continue mexendo.
+                                
+                                Por último, coloque o creme de leite, mexa por 1 minuto e desligue o fogo.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="item">
+                        
+                        <div class="item-img">
+                            <img src="img/img4.jpg">
+                        </div>
+                        <div class="item-title">
+                            <h3>titulo da receita</h3>
+                        </div>
+                                    <hr>
+                        <div class="item-ingredientes">
+                            <h4>Ingredientes</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quisquam
+                                reprehenderit est delectus eos sapiente
+                                in cumque quod? Distinctio dolores quia tempore exercitationem nihil ipsa
+                                ipsum sint eveniet sit pariatur?
+                            </p>
+                        </div>
+                                    <hr>
+                        <div class="item-preparo">
+                            <h4>Modo de preparo</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quisquam
+                                reprehenderit est delectus eos sapiente
+                                in cumque quod? Distinctio dolores quia tempore exercitationem nihil ipsa
+                                ipsum sint eveniet sit pariatur?
+                            </p>
+
+                        </div>
+
+                    </div>
+                    
+                  
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var hamburger = document.querySelector(".hamburger");
+        var wrapper = document.querySelector(".wrapper");
+        var backdrop = document.querySelector(".backdrop");
+        
+
+        hamburger.addEventListener('click', function(){
+            wrapper.classList.add("active");
+        });
+
+        backdrop.addEventListener('click', function(){
+            wrapper.style.transition = "rigth 1s linear"; 
+            wrapper.classList.remove("active");
+        });
+
+    </script>
+
+
+    <script src="js/app.js"></script>
+    <script src="js/authIndex.js"></script>
+
+</body>
+</html>
