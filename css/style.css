@@ -195,6 +195,11 @@ body{
     
 }
 
+.main_container .content .item .item-title{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
 .main_container .content .item:hover{
     background: white;
     padding: 32px;
@@ -241,6 +246,11 @@ body{
 
 
 @media(max-width: 768px){
+    .main_container .content .item .info{
+        display: flex;
+        flex-direction: column;
+    }
+    
     .main_container .hamburger{
         display: inline-block;
     }

@@ -12,6 +12,7 @@
     <title>Minha Receitas</title>
 
     <script src="js/transition.js"></script>
+    
     <script src="https://kit.fontawesome.com/2985d3b77d.js" crossorigin="anonymous"></script>
 
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
@@ -29,40 +30,7 @@
 <body>
     <div class="transition transition-1 is-active"></div>
 
-    <div class="modal">
-        <div class="modal-content">
-            <div class="button">
-                <span>&times;</span>
-            </div>
-            
-            <div class="modal-content-t">
-                <div class="foto">
-                    <p>Adicione uma imagem sobre a receita:</p>
-                    <div class="espacoFoto">
-                        
-                    </div>
-                </div>
-                <div class="title">
-                    <p>Digite o Titulo da receita:</p>
-                    <input type="text">
-                </div>
-
-                <div class="ingredientes">
-                    <p>Digite os Ingredientes:</p>
-                    <textarea id="story" name="story" rows="5" cols="33">
-                        
-                    </textarea>
-                </div>
-                <div class="modo-preparo">
-                    <p>Digite o modo de preparo:</p>
-                    <textarea id="story" name="story" rows="5" cols="33">
-                        
-                    </textarea>
-                </div>
-            </div>
-            
-        </div>
-    </div>
+    
 
 
     <div class="wrapper">
@@ -74,7 +42,7 @@
 
                     <div class="profile_info">
                         <div class="img_holder">
-                            <img src="img/imgperfil.jpg" alt="img_perfil">
+                            <img src="" alt="">
                         </div>
                         <p id="nameUser" class="title"></p>
                         <p id="emailUser" class="sub_title"></p>
@@ -127,8 +95,8 @@
                         Não tenho receitas ainda...
                         <div class="control">
                             <div class="buttons">
-                                <div class="plus">
-                                    <a href=""> <i class="fas fa-plus"></i> </a>
+                                <div class="plus" >
+                                    <button id="btnShowModal" onclick="showModal()"><i class="fas fa-plus"></i>  </button> 
                                 </div>
                             </div>
                             
@@ -141,6 +109,46 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="button">
+                <span onclick="hideModal()">&times;</span>
+            </div>
+            
+            <div class="modal-content-t">
+                
+                <div class="title">
+                    <p>Digite o Titulo da receita:</p>
+                    <input id="campoTitle" type="text" placeholder="Digite o Titulo da receita">
+                </div>
+                
+                <div class="foto">
+                    <p>Adicione uma imagem sobre a receita:</p>
+                    <div class="espacoFoto">
+                        <p>+</p>
+                    </div>
+                </div>
+                
+
+                <div class="ingredientes">
+                    <p>Digite os Ingredientes:</p>
+                    <textarea id="campoIngredientes" name="story" placeholder="Digite os Ingredientes da receita"></textarea>
+                </div>
+                <div class="modo-preparo">
+                    <p>Digite o modo de preparo:</p>
+                    <textarea id="campoPreparo" name="story"  placeholder="Digite o modo de preparo"></textarea>
+                </div>
+                <div class="buttons">
+                    <button id="btnSalvar">Salvar</button>
+                    <button id="btnCancelar" onclick="hideModal()" >Cancelar</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
 
     <script>
         var hamburger = document.querySelector(".hamburger");
@@ -155,11 +163,21 @@
             wrapper.classList.remove("active");
         });
 
+
+
     </script>
 
 
+
+    <script>
+        
+
+    </script>
+
+    
     <script src="js/app.js"></script>
     <script src="js/authIndex.js"></script>
+    <script src="js/modal.js"></script>
 
 </body>
 </html>
